@@ -1,4 +1,4 @@
-from display import show_string, show_message
+from display import show_message
 from setup import setup_hardware
 
 from random import randint
