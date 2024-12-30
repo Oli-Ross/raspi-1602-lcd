@@ -1,6 +1,6 @@
 from time import sleep 
 
-SLEEP_BETWEEN_SCROLLS = 0.8
+SLEEP_BETWEEN_SCROLLS = 1.0
 
 def squash_words(lines):
     """
@@ -25,7 +25,6 @@ def squash_words(lines):
 def show_many_words(display, words):
     for word in words:
         assert len(word) <= 14
-    words = squash_words(words)
     for i in range(0, len(words), 2):
         word1, word2 = words[i], words[i+1] if i+1 < len(words) else None
         # Last 1 word
@@ -49,6 +48,7 @@ def de_germanize(message):
 def show_message(display, message):
     message = de_germanize(message)
     words = message.split(" ")
+    words = squash_words(words)
     if len(words) > 2:
         show_many_words(display, words)
     elif len(words) == 2:

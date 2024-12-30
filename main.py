@@ -25,11 +25,12 @@ def callback_press(color):
     buttons[color].when_pressed = None
     leds[color].on()
 
-    if color == "yellow":
-        show_message(display,"String 1")
-    if color == "red":
-        show_message(display,"String 2")
     if color == "green":
+        greentext = "This is a rather long story about someone using a Raspberry Pi, to learn how to program an I2C 16x02 LCD Display and controlling it with buttons."
+        show_message(display,greentext)
+    if color == "yellow":
+        show_message(display,"String 2")
+    if color == "red":
         show_message(display,"String 3")
     buttons[color].when_pressed = partial(callback_press,color)
     # buzzer.on()
